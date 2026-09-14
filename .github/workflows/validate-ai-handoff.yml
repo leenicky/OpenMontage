@@ -1,0 +1,44 @@
+name: Validate AI Handoff
+
+on:
+  pull_request:
+    paths:
+      - "AI_HANDOFF.md"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "docs/ai-handoffs/**"
+      - ".github/workflows/validate-ai-handoff.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "AI_HANDOFF.md"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "docs/ai-handoffs/**"
+      - ".github/workflows/validate-ai-handoff.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate shared handoff contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f AI_HANDOFF.md
+          test -f docs/ai-handoffs/README.md
+          test -f docs/ai-handoffs/TEMPLATE.md
+          grep -q '^## Current Task$' AI_HANDOFF.md
+          grep -q '^## Next Executable Step$' AI_HANDOFF.md
+          grep -q '^## Verification$' AI_HANDOFF.md
+          grep -q '^## Known Limits And Risks$' AI_HANDOFF.md
+          grep -q 'AI_HANDOFF.md' AGENTS.md
+          grep -q 'AI_HANDOFF.md' CLAUDE.md
