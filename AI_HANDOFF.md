@@ -6,9 +6,9 @@
 
 ## Current Task
 
-- Task ID: `bootstrap-cross-ai-handoff`
-- Owner: `unassigned`
-- Status: `ready-for-next-task`
+- Task ID: `yunnan-grand-tour-friendship`（已完成）
+- Owner: `Claude Code (Windows)`
+- Status: `done — ready-for-next-task`
 - Branch: `main`
 - Last verified commit: `419e9c0f6b9bb2571f608df4a188fcc31e55974a`
 
@@ -17,6 +17,8 @@
 - Fork created at `https://github.com/leenicky/OpenMontage`.
 - Added the cross-AI handoff contract and its validation workflow.
 - GitHub Actions validation completed successfully for commit `419e9c0`.
+- 2026-09-15：第一支影片「壯遊雲南友情」v1 / v2 完成並交付桌面；細節見
+  `docs/ai-handoffs/2026-09-15-yunnan-grand-tour-friendship.md` 與共享腦 `team-dev-context/openmontage/`。
 
 ## Next Executable Step
 
